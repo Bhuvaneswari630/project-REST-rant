@@ -13,7 +13,8 @@ app.get('/', (req, res) => {
     res.render('Home')
 })
 app.get('*', (req, res) => {
-    res.status(404).send(`<h1>404 page</h1>`)
+    // res.status(404).send(`<h1>404 page</h1>`)
+    res.render('Error404')
 })
 
 app.listen(PORT, () => {
