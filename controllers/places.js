@@ -13,7 +13,8 @@ let places = [{
     pic: 'http://placekitten.com/250/250'
   }]
 router.get('/new', (req, res) => {
-    res.send('Form page for creating a new place')
+    // res.send('Form page for creating a new place')
+    res.render('places/New')
 })
 router.get('/:id', (req, res) => {
     let place = places[req.params.id]
@@ -27,7 +28,9 @@ router.delete('/:id', (req, res) => {
     res.send('Delete a particular place')
 })
 router.get('/:id/edit', (req, res) => {
-    res.send('Form page for editing an existing place')
+    // res.send('Form page for editing an existing place')
+    let place = places[req.params.id]
+    res.render('places/Edit', {place})
 })
 router.post('/:id/rant', (req, res) => {
     res.send('Create a rant (comment) about a particular place')
