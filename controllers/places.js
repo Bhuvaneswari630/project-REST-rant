@@ -1,7 +1,5 @@
 const router = require('express').Router()
 
-
-
 router.get('/new', (req, res) => {
     res.send('Form page for creating a new place')
 })
@@ -24,7 +22,22 @@ router.delete('/:id/:rantId', (req, res) => {
     res.send('Delete a rant (comment) about a particular place')
 })
 router.get('/', (req, res) => {
-    res.send('GET /places')
+    // res.send('GET /places')
+    let places = [{
+        name: 'H-Thai-ML',
+        city: 'Seattle',
+        state: 'WA',
+        cuisines: 'Thai, Pan-Asian',
+        pic: 'http://placekitten.com/250/250'
+      }, {
+        name: 'Coding Cat Cafe',
+        city: 'Phoenix',
+        state: 'AZ',
+        cuisines: 'Coffee, Bakery',
+        pic: 'http://placekitten.com/250/250'
+      }]
+      
+    res.render('places/Index', { places })
 })
 router.post('/', (req, res) => {
     res.send('Create new place')
