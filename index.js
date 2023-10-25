@@ -3,10 +3,14 @@ const express = require('express')
 const PORT = process.env.PORT
 const app = express()
 
+app.set('view engine', 'jsx')
+app.engine('jsx', require('express-react-views').createEngine())
+
 app.use('/places', require('./controllers/places'))
 
 app.get('/', (req, res) => {
-    res.send('Home page')
+    // res.send('Home page')
+    res.render('Home')
 })
 app.get('*', (req, res) => {
     res.status(404).send(`<h1>404 page</h1>`)

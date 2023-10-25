@@ -1,6 +1,6 @@
 const React = require('react')
 
-function Default () {
+function Default (html) {
 return (
     <html>
         <head>
