@@ -4,21 +4,27 @@ let places = [{
     city: 'Seattle',
     state: 'WA',
     cuisines: 'Thai, Pan-Asian',
-    pic: 'http://placekitten.com/250/250'
+    pic: '/images/H-Thai-ML.jpg',
+    picAuthor: 'Louis Hansel',
+    authorLink: 'https://unsplash.com/@louishansel'
   }, 
   {
     name: 'Coding Cat Cafe',
     city: 'Phoenix',
     state: 'AZ',
     cuisines: 'Coffee, Bakery',
-    pic: 'http://placekitten.com/250/250'
+    pic: '/images/Cafe.jpg',
+    picAuthor: 'Rizky Subagja',
+    authorLink: 'https://unsplash.com/@subagjav'
   },
   {
     name: 'Slice of Spice',
     city: 'Charlotte',
     state: 'NC',
     cuisines: 'Indian, Asian',
-    pic: 'http://placekitten.com/250/250'
+    pic: '/images/slice.jpg',
+    picAuthor: 'Izzah',
+    authorLink: 'https://unsplash.com/@teaforturmeric'
   }
 ]
 router.get('/new', (req, res) => {
