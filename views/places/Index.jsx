@@ -5,7 +5,7 @@ function Index({ places }) {
     let placesFormatted = places.map((place, index) => {
         return (
             <div key={index}>
-                <h2>{place.name}</h2>
+                <a href={`/places/${index}`}><h2>{place.name}</h2></a>
                 <img src={place.pic} alt={place.name} />
             </div>
         )

@@ -1,7 +1,7 @@
 const React = require('react')
 const Default = require('../Default')
 
-function Show({ place }) {
+function Show({ place, index }) {
     return (
         <Default>
             <main>
@@ -11,8 +11,9 @@ function Show({ place }) {
                     <p>Cuisines: {place.cuisines}</p>
                 </div>
                 <div className='button-container'>
-                    <button>Edit</button>
-                    <button>Delete</button>
+                    <a href={`/places/${index}`}><button className='btn btn-primary'>Edit</button></a>
+                    <button className='btn btn-danger'>Delete</button>
+                    <a href='/places'><button className='btn btn-primary'>Go to places</button></a>
                 </div>
             </main>
         </Default>
