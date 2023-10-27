@@ -1,38 +1,25 @@
 const router = require('express').Router()
-let places = [{
-    name: 'H-Thai-ML',
-    city: 'Seattle',
-    state: 'WA',
-    cuisines: 'Thai, Pan-Asian',
-    pic: '/images/H-Thai-ML.jpg',
-    picAuthor: 'Louis Hansel',
-    authorLink: 'https://unsplash.com/@louishansel'
-  }, 
-  {
-    name: 'Coding Cat Cafe',
-    city: 'Phoenix',
-    state: 'AZ',
-    cuisines: 'Coffee, Bakery',
-    pic: '/images/Cafe.jpg',
-    picAuthor: 'Rizky Subagja',
-    authorLink: 'https://unsplash.com/@subagjav'
-  },
-  {
-    name: 'Slice of Spice',
-    city: 'Charlotte',
-    state: 'NC',
-    cuisines: 'Indian',
-    pic: '/images/slice.jpg',
-    picAuthor: 'Izzah',
-    authorLink: 'https://unsplash.com/@teaforturmeric'
-  }
-]
+const places = require('../models/places.js')
+
 router.get('/', (req, res) => {
     // res.send('GET /places')  
     // should give file name from view folder
     res.render('places/Index', { places })
 })
 router.post('/', (req, res) => {
+    console.log(req.body);
+    let place = req.body
+    if (!req.body.pic) {
+        // Default image if not provided
+        place.pic = 'http://placekitten.com/400/400'
+    }
+    if (!req.body.city) {
+        place.city = 'Anytown'
+    }
+    if (!req.body.state) {
+        place.state = 'USA'
+     }
+     places.push(place)
     // should give the path 
     res.redirect('/places')
 })
