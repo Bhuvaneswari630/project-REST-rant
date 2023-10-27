@@ -19,11 +19,14 @@ function Index({ places }) {
     return (
         <Default>
             <main>
-                <h1>Places to Rant or Rave Abou</h1>
+                <h1>Places to Rant or Rave About</h1>
                 <div className='row'>
                     {placesFormatted}
                 </div>
-
+                <div>
+                    <a href="/places/new"><button className='btn btn-primary'>Create a new place</button></a>
+                    <a href="/"><button className='btn btn-secondary'>Back to Home page</button></a>
+                </div>
             </main>
         </Default>
     )

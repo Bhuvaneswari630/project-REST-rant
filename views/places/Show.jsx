@@ -14,9 +14,9 @@ function Show({ place, index }) {
                     <p>Cuisines: {place.cuisines}</p>
                 </div>
                 <div className='button-container'>
-                    <a href={`/places/${index}`}><button className='btn btn-primary'>Edit</button></a>
+                    <a href={`/places/${index}/edit`}><button className='btn btn-primary'>Edit</button></a>
                     <button className='btn btn-danger'>Delete</button>
-                    <a href='/places'><button className='btn btn-primary'>Go to places</button></a>
+                    <a href='/places'><button className='btn btn-secondary'>Go to places</button></a>
                 </div>
             </main>
         </Default>

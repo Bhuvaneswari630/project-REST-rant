@@ -21,12 +21,21 @@ let places = [{
     name: 'Slice of Spice',
     city: 'Charlotte',
     state: 'NC',
-    cuisines: 'Indian, Asian',
+    cuisines: 'Indian',
     pic: '/images/slice.jpg',
     picAuthor: 'Izzah',
     authorLink: 'https://unsplash.com/@teaforturmeric'
   }
 ]
+router.get('/', (req, res) => {
+    // res.send('GET /places')  
+    // should give file name from view folder
+    res.render('places/Index', { places })
+})
+router.post('/', (req, res) => {
+    // should give the path 
+    res.redirect('/places')
+})
 router.get('/new', (req, res) => {
     // res.send('Form page for creating a new place')
     res.render('places/New')
@@ -56,12 +65,7 @@ router.post('/:id/rant', (req, res) => {
 router.delete('/:id/:rantId', (req, res) => {
     res.send('Delete a rant (comment) about a particular place')
 })
-router.get('/', (req, res) => {
-    // res.send('GET /places')  
-    res.render('places/Index', { places })
-})
-router.post('/', (req, res) => {
-    res.send('Create new place')
-})
+
+
 
 module.exports = router
