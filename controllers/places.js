@@ -27,6 +27,12 @@ router.get('/new', (req, res) => {
     // res.send('Form page for creating a new place')
     res.render('places/New')
 })
+router.delete('/:id', (req, res) => {
+    let index = req.params.id
+    places.splice(index, 1)
+    res.status(303).redirect('/places')
+    // res.send('Delete a particular place')
+})
 router.get('/:id', (req, res) => {
     let place = places[req.params.id]
     res.render('places/Show', {
@@ -38,9 +44,7 @@ router.get('/:id', (req, res) => {
 router.put('/:id', (req, res) => {
     res.send('Update a particular place')
 })
-router.delete('/:id', (req, res) => {
-    res.send('Delete a particular place')
-})
+
 router.get('/:id/edit', (req, res) => {
     // res.send('Form page for editing an existing place')
     let place = places[req.params.id]
