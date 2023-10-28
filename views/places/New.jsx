@@ -7,7 +7,7 @@ function New() {
             <main>
                 <h1>Create a New Place</h1>
                 <form action="/places" method='POST'>
-                    <div class="form-group">
+                    <div className="form-group">
                         <label htmlFor="post-name">Name</label>
                         <input 
                         type="text"
@@ -17,7 +17,7 @@ function New() {
                         required
                          />
                     </div>
-                    <div class="form-group">
+                    <div className="form-group">
                         <label htmlFor="post-city">City</label>
                         <input 
                         type="text"
@@ -26,7 +26,7 @@ function New() {
                         id='post-city'
                         />
                     </div>
-                    <div class="form-group">
+                    <div className="form-group">
                         <label htmlFor="post-state">State</label>
                         <input 
                         type="text" 
@@ -35,7 +35,7 @@ function New() {
                         id='post-state' 
                         />
                     </div>
-                    <div class="form-group">
+                    <div className="form-group">
                         <label htmlFor="post-cuisines">Cuisines</label>
                         <input 
                         type="text" 
@@ -45,7 +45,7 @@ function New() {
                         required
                         />
                     </div>
-                    <div class="form-group">
+                    <div className="form-group">
                         <label htmlFor="post-pic">Image URL</label>
                         <input 
                         type="url" 

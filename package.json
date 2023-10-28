@@ -2,7 +2,7 @@
   "name": "rest-rant",
   "version": "1.0.0",
   "description": "",
-  "main": "\u001b[A\u001b[B\u001b[A\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D REST-rant\u001b[B\u001b[C",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

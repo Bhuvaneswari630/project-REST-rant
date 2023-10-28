@@ -18,8 +18,8 @@ router.post('/', (req, res) => {
     }
     if (!req.body.state) {
         place.state = 'USA'
-     }
-     places.push(place)
+    }
+    places.push(place)
     // should give the path 
     res.redirect('/places')
 })
@@ -29,9 +29,9 @@ router.get('/new', (req, res) => {
 })
 router.get('/:id', (req, res) => {
     let place = places[req.params.id]
-    res.render('places/Show', { 
-        place : place,
-        index : req.params.id
+    res.render('places/Show', {
+        place: place,
+        index: req.params.id
     })
     // res.send('Details about a particular place')
 })
@@ -44,7 +44,7 @@ router.delete('/:id', (req, res) => {
 router.get('/:id/edit', (req, res) => {
     // res.send('Form page for editing an existing place')
     let place = places[req.params.id]
-    res.render('places/Edit', {place})
+    res.render('places/Edit', { place })
 })
 router.post('/:id/rant', (req, res) => {
     res.send('Create a rant (comment) about a particular place')
