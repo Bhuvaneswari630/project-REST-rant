@@ -1,33 +1,58 @@
 const React = require('react')
 const Default = require('../Default')
 
-function Edit({ place }) {
+function Edit({ place, index }) {
     return (
         <Default>
             <main>
-                <h1>Edit a Place</h1>
-                <form action="#">
-                    <div>
-                        <label htmlFor="name">Name</label>
-                        <input type="text" placeholder={place.name} />
+                <h1>Edit Place</h1>
+                <form action={`/places/${index}?_method=PUT`} method='POST' >
+                    <div className="row m-1">
+                        <div className='form-group col-6'>
+                            <label htmlFor="name" >Name</label>
+                            <input
+                                type="text"
+                                className="form-control"
+                                defaultValue={place.name}
+                            />
+                        </div>
+                        <div className='form-group col-6'>
+                            <label htmlFor="city">City</label>
+                            <input
+                                type="text"
+                                className="form-control"
+                                defaultValue={place.city}
+                            />
+                        </div>
                     </div>
-                    <div>
-                        <label htmlFor="city">City</label>
-                        <input type="text" placeholder={place.city} />
+                    <div className="row m-1">
+                    <div className='form-group col-6'>
+                            <label htmlFor="state">State</label>
+                            <input
+                                type="text"
+                                className="form-control"
+                                defaultValue={place.state}
+                            />
+                        </div>
+                        <div className='form-group col-6'>
+                            <label htmlFor="cuisines">Cuisines</label>
+                            <input
+                                type="text"
+                                className="form-control"
+                                defaultValue={place.cuisines}
+                            />
+                        </div>
                     </div>
-                    <div>
-                        <label htmlFor="state">State</label>
-                        <input type="text" placeholder={place.state} />
-                    </div>
-                    <div>
-                        <label htmlFor="cuisines">Cuisines</label>
-                        <input type="text" placeholder={place.cuisines} />
-                    </div>
-                    <div>
+                    {/* <div className="row"> */}
+                    <div className='form-group m-1' >
                         <label htmlFor="pic">Image URL</label>
-                        <input type="text" placeholder={place.pic} />
+                        <input
+                            type="text"
+                            className="form-control"
+                            defaultValue={place.pic}
+                        />
                     </div>
-                    <button type='submit'>Submit</button>
+                    <input className='btn btn-success' type='submit' value='Update' />
                 </form>
             </main>
         </Default>

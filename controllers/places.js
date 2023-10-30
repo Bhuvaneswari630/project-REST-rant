@@ -41,20 +41,25 @@ router.delete('/:id', (req, res) => {
     // res.send('Delete a particular place')
 })
 router.put('/:id', (req, res) => {
-    res.send('Update a particular place')
+    // res.send('Update a particular place')
+    let index = req.params.id
+    places[index] = req.body
+    // console.log(req.body);
+    places[index] = { ...places[index], ...req.body }
+    res.redirect(`/places/${index}`)
 })
 router.get('/:id', (req, res) => {
-    let id = Number(req.params.id)
-    if (isNaN(id)) {
+    let index = Number(req.params.id)
+    if (isNaN(index)) {
         res.render('Error404')
-    } else if (!places[id]) {
+    } else if (!places[index]) {
         res.render('Error404')
     }
     else {
         let place = places[req.params.id]
         res.render('places/Show', {
             place: place,
-            index: id
+            index: index
         })
     }
     
@@ -63,9 +68,20 @@ router.get('/:id', (req, res) => {
 
 router.get('/:id/edit', (req, res) => {
     // res.send('Form page for editing an existing place')
-    let place = places[req.params.id]
-    res.render('places/Edit', { place })
+    let index = Number(req.params.id)
+    if (isNaN(index)) {
+        res.render('Error404')
+    } else if (!places[index]) {
+        res.render('Error404')
+    } else {
+        let place = places[req.params.id]
+        res.render('places/Edit', { 
+            place: place,
+            index: index
+        })
+    }
 })
+
 router.post('/:id/rant', (req, res) => {
     res.send('Create a rant (comment) about a particular place')
 })
