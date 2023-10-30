@@ -28,21 +28,37 @@ router.get('/new', (req, res) => {
     res.render('places/New')
 })
 router.delete('/:id', (req, res) => {
-    let index = req.params.id
-    places.splice(index, 1)
-    res.status(303).redirect('/places')
+    let index = Number(req.params.id)
+    if (isNaN(index)) {
+        res.render('Error404')
+    } else if (!places[index]) {
+        res.render('Error404')
+    } else {
+        places.splice(index, 1)
+        res.redirect('/places')
+    }
+
     // res.send('Delete a particular place')
-})
-router.get('/:id', (req, res) => {
-    let place = places[req.params.id]
-    res.render('places/Show', {
-        place: place,
-        index: req.params.id
-    })
-    // res.send('Details about a particular place')
 })
 router.put('/:id', (req, res) => {
     res.send('Update a particular place')
+})
+router.get('/:id', (req, res) => {
+    let id = Number(req.params.id)
+    if (isNaN(id)) {
+        res.render('Error404')
+    } else if (!places[id]) {
+        res.render('Error404')
+    }
+    else {
+        let place = places[req.params.id]
+        res.render('places/Show', {
+            place: place,
+            index: id
+        })
+    }
+    
+    // res.send('Details about a particular place')
 })
 
 router.get('/:id/edit', (req, res) => {

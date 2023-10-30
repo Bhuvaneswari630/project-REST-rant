@@ -9,56 +9,56 @@ function New() {
                 <form action="/places" method='POST'>
                     <div className="form-group">
                         <label htmlFor="post-name">Name</label>
-                        <input 
-                        type="text"
-                        className="form-control" 
-                        name='name'
-                        id='post-name'
-                        required
-                         />
+                        <input
+                            type="text"
+                            className="form-control"
+                            name='name'
+                            id='post-name'
+                            required
+                        />
                     </div>
                     <div className="form-group">
                         <label htmlFor="post-city">City</label>
-                        <input 
-                        type="text"
-                        className="form-control" 
-                        name='city'
-                        id='post-city'
+                        <input
+                            type="text"
+                            className="form-control"
+                            name='city'
+                            id='post-city'
                         />
                     </div>
                     <div className="form-group">
                         <label htmlFor="post-state">State</label>
-                        <input 
-                        type="text" 
-                        className="form-control"
-                        name='state'
-                        id='post-state' 
+                        <input
+                            type="text"
+                            className="form-control"
+                            name='state'
+                            id='post-state'
                         />
                     </div>
                     <div className="form-group">
                         <label htmlFor="post-cuisines">Cuisines</label>
-                        <input 
-                        type="text" 
-                        className="form-control" 
-                        name='cuisines'
-                        id='post-cuisines'
-                        required
+                        <input
+                            type="text"
+                            className="form-control"
+                            name='cuisines'
+                            id='post-cuisines'
+                            required
                         />
                     </div>
                     <div className="form-group">
                         <label htmlFor="post-pic">Image URL</label>
-                        <input 
-                        type="url" 
-                        className="form-control"
-                        name='pic'
-                        id='post-pic' 
+                        <input
+                            type="url"
+                            className="form-control"
+                            name='pic'
+                            id='post-pic'
                         />
                     </div>
                     <div>
-                        <a href="/places"><button className='btn btn-secondary'>Back to places</button></a>
                         <button type='submit' className='btn btn-success'>Add Place</button>
                     </div>
                 </form>
+                <a href="/places"><button className='btn btn-secondary'>Back to places</button></a>
             </main>
         </Default>
     )
