@@ -48,7 +48,7 @@ function New() {
                     <div className="form-group">
                         <label htmlFor="post-pic">Image URL</label>
                         <input
-                            type="url"
+                            // type="url"
                             className="form-control"
                             name='pic'
                             id='post-pic'

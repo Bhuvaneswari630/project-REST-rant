@@ -9,9 +9,9 @@ function Show({ place, index }) {
                     <div className="row no-gutters">
                         <div className="col-md-4">
                             <img src={place.pic} className="card-img" alt={place.name} height='500' />
-                            <div>
+                            {/* <div>
                                 Photo by <a href={place.authorLink}>{place.picAuthor}</a> on <a href="https://unsplash.com">Unsplash</a>
-                            </div>
+                            </div> */}
                         </div>
                         <div className="col-md-8">
                             <div className="card-body">
