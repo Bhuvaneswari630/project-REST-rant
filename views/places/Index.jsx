@@ -4,9 +4,9 @@ const Default = require('../Default')
 function Index({ places }) {
     let placesFormatted = places.map((place, index) => {
         return (
-            <div key={index}>
+            <div key={place.id}>
                 <div className='col'>
-                    <a href={`/places/${index}`}><h2>{place.name}</h2></a>
+                    <a href={`/places/${place.id}`}><h2>{place.name}</h2></a>
                     <p className='text-center'>
                         {place.cuisines}
                     </p>

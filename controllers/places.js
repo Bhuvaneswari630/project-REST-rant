@@ -1,12 +1,19 @@
 const router = require('express').Router()
-const places = require('../models/places.js')
+const places = require('../models/places')
 
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
     // res.send('GET /places')  
+    try {
+        const allPlaces = await places.find();
+        res.render('places/Index', { places: allPlaces })
+    } catch (e) {
+        console.log('error', e);
+        res.status(404).render('Error404')
+    }
+
     // should give file name from view folder
-    res.render('places/Index', { places })
 })
-router.post('/', (req, res) => {
+router.post('/', async (req, res) => {
     console.log(req.body);
     let place = req.body
     if (!req.body.pic) {
@@ -19,7 +26,8 @@ router.post('/', (req, res) => {
     if (!req.body.state) {
         place.state = 'USA'
     }
-    places.push(place)
+    // places.push(place)
+    await places.create(place)
     // should give the path 
     res.redirect('/places')
 })
@@ -66,20 +74,26 @@ router.delete('/:id', (req, res) => {
     // res.send('Delete a particular place')
 })
 
-router.get('/:id', (req, res) => {
-    let index = Number(req.params.id)
-    if (isNaN(index)) {
-        res.render('Error404')
-    } else if (!places[index]) {
-        res.render('Error404')
-    }
-    else {
-        let place = places[req.params.id]
+router.get('/:id', async (req, res) => {
+    // let index = Number(req.params.id)
+    // if (isNaN(index)) {
+    //     res.render('Error404')
+    // } else if (!places[index]) {
+    //     res.render('Error404')
+    // }
+    // else {
+    try {
+        let place = await places.findById(req.params.id)
         res.render('places/Show', {
             place: place,
-            index: index
+            index: req.params.id
         })
+    } catch (e) {
+        console.log('error', e);
+        res.render('Error404')
     }
+
+    // }
 
     // res.send('Details about a particular place')
 })

@@ -54,6 +54,16 @@ function New() {
                             id='post-pic'
                         />
                     </div>
+                    <div className="form-group">
+                        <label for="founded">Founded Year</label>
+                        <input
+                            type='number'
+                            className="form-control"
+                            id="founded"
+                            name="founded"
+                        />
+                    </div>
+
                     <div>
                         <button type='submit' className='btn btn-success'>Add Place</button>
                     </div>
