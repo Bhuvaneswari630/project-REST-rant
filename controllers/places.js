@@ -35,6 +35,7 @@ router.get('/new', (req, res) => {
     // res.send('Form page for creating a new place')
     res.render('places/New')
 })
+
 router.put('/:id', (req, res) => {
     // res.send('Update a particular place')
     let index = Number(req.params.id)
@@ -60,22 +61,24 @@ router.put('/:id', (req, res) => {
         res.redirect(`/places/${index}`)
     }
 })
-router.delete('/:id', (req, res) => {
-    let index = Number(req.params.id)
-    if (isNaN(index)) {
-        res.render('Error404')
-    } else if (!places[index]) {
-        res.render('Error404')
-    } else {
-        places.splice(index, 1)
-        res.redirect('/places')
-    }
+router.delete('/:id', async (req, res) => {
+    console.log('inside delete route', req.params.id);
+    let index = req.params.id
+    // if (isNaN(index)) {
+    //     res.render('Error404')
+    // } else if (!places[index]) {
+    //     res.render('Error404')
+    // } else {
+    // places.splice(index, 1)
+    await places.findByIdAndDelete(index)
+    res.redirect('/places')
+    // }
 
     // res.send('Delete a particular place')
 })
 
 router.get('/:id', async (req, res) => {
-    // let index = Number(req.params.id)
+    let index = req.params.id
     // if (isNaN(index)) {
     //     res.render('Error404')
     // } else if (!places[index]) {
@@ -83,10 +86,10 @@ router.get('/:id', async (req, res) => {
     // }
     // else {
     try {
-        let place = await places.findById(req.params.id)
+        let place = await places.findById(index)
         res.render('places/Show', {
             place: place,
-            index: req.params.id
+            index: index
         })
     } catch (e) {
         console.log('error', e);

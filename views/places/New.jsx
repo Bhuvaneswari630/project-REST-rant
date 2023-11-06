@@ -55,7 +55,7 @@ function New() {
                         />
                     </div>
                     <div className="form-group">
-                        <label for="founded">Founded Year</label>
+                        <label htmlFor="founded">Founded Year</label>
                         <input
                             type='number'
                             className="form-control"

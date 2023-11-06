@@ -63,6 +63,16 @@ function Edit({ place, index }) {
                             defaultValue={place.pic}
                         />
                     </div>
+                    <div className='form-group m-1' >
+                        <label htmlFor="founded">Image URL</label>
+                        <input
+                            type="number"
+                            name='founded'
+                            id='founded'
+                            className="form-control"
+                            defaultValue={place.pic}
+                        />
+                    </div>
                     <input className='btn btn-success' type='submit' value='Update' />
                 </form>
             </main>
