@@ -24,19 +24,23 @@ function Show({ place, index }) {
                                 <h5 className="card-text">Serving {place.cuisines}</h5>
                                 {/* <p className="card-text"><small className="text-muted">{place.founded}</small></p> */}
                             </div>
+                            <div>
+                                <a href={`/places/${index}/edit`}><button className='btn btn-warning'>Edit</button></a>
+                                <form action={`/places/${index}?_method=DELETE`} method='POST' >
+                                    {/* <button type='submit' className='btn btn-danger'>Delete</button> */}
+                                    <input className='btn btn-danger' type="submit" value='DELETE' />
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
+
                 <div className='comments-container'>
                     <h3>Comments</h3>
                     <p>No comments yet!</p>
                 </div>
                 <div className='button-container'>
-                    <a href={`/places/${index}/edit`}><button className='btn btn-warning'>Edit</button></a>
-                    <form action={`/places/${index}?_method=DELETE`} method='POST' >
-                        {/* <button type='submit' className='btn btn-danger'>Delete</button> */}
-                        <input className='btn btn-danger' type="submit" value='DELETE' />
-                    </form>
+
                     {/* <a  href</div>={`/places/0/delete`}><button >Delete</button></a> */}
                     <a href='/places'><button className='btn btn-secondary'>Go to places</button></a>
                 </div>
