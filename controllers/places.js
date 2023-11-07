@@ -26,11 +26,27 @@ router.post('/', async (req, res) => {
     if (!req.body.state) {
         place.state = 'USA'
     }
-    // places.push(place)
-    await places.create(place)
-    // should give the path 
-    res.redirect('/places')
+    try {
+        await places.create(place)
+        // should give the path 
+        res.redirect('/places')
+    } catch (e) {
+        if (e && e.name == 'ValidationError') {
+            let message = 'Validation Error:'
+            for (let field in e.errors) {
+                message += `${field} was ${e.errors[field].value} .`
+                message += `${e.errors[field].message}`
+                console.log('Validation error message', message);
+            }
+            res.render('places/new', { message })
+        } else {
+            console.log('Err', e);
+            res.render('Error404', e)
+        }
+    }
 })
+
+
 router.get('/new', (req, res) => {
     // res.send('Form page for creating a new place')
     res.render('places/New')

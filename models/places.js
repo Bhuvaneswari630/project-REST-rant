@@ -3,14 +3,18 @@ const { Schema } = mongoose
 
 const placeSchema = new Schema({
   name: { type: String, required: true },
-  city: { type: String, default: 'Anytown'},
-  state: { type: String, default: 'USA'},
+  city: { type: String, default: 'Anytown' },
+  state: { type: String, default: 'USA' },
   cuisines: { type: String, required: true },
-  pic: { type: String, default: 'https://i.ytimg.com/vi/Fk0wMVnXp3o/maxresdefault.jpg'},
-  founded: Number
+  pic: { type: String, default: 'http://placehold.it/500x500.png' },
+  founded: {
+    type: Number,
+    min: [1673, 'Surely not that old?!'],
+    max: [new Date().getFullYear(), 'Hey, this is in the future']
+  }
 })
 // instance method
-placeSchema.methods.showEstablished = function() {
+placeSchema.methods.showEstablished = function () {
   return `${this.name} has been serving ${this.city}, ${this.state} since ${this.founded}.`
 }
 
