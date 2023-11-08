@@ -2,6 +2,25 @@ const React = require('react')
 const Default = require('../Default')
 
 function Show({ place, index }) {
+    let comments = (
+        <h4 className='inactive'>
+            No comments yet !
+        </h4>
+    )
+    if (place.comments.length) {
+        comments = place.comments.map(c => {
+            return (
+                <div key={c.id} className="border">
+                    <h2 className="rant">{c.rant ? 'Rant!' : 'Rave!'}</h2>
+                    <h4>{c.content}</h4>
+                    <h3>
+                        <stong>- {c.author}</stong>
+                    </h3>
+                    <h4>Rating: {c.stars}</h4>
+                </div>
+            )
+        })
+    }
     return (
         <Default>
             <main>
@@ -37,7 +56,7 @@ function Show({ place, index }) {
 
                 <div className='comments-container'>
                     <h3>Comments</h3>
-                    <p>No comments yet!</p>
+                    {comments}
                 </div>
                 <div className='button-container'>
 

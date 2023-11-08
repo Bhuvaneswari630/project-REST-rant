@@ -1,5 +1,6 @@
 const router = require('express').Router()
 const places = require('../models/places')
+const comments = require('../models/comments')
 
 router.get('/', async (req, res) => {
     // res.send('GET /places')  
@@ -120,6 +121,8 @@ router.get('/:id', async (req, res) => {
     // else {
     try {
         let place = await places.findById(index)
+            .populate('comments')
+        console.log('Comments', place.comments);
         res.render('places/Show', {
             place: place,
             index: index
