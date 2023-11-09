@@ -122,7 +122,7 @@ router.get('/:id', async (req, res) => {
     try {
         let place = await places.findById(index)
             .populate('comments')
-        console.log('Comments', place.comments);
+        // console.log('Comments', place.comments);
         res.render('places/Show', {
             place: place,
             index: index
@@ -137,6 +137,22 @@ router.get('/:id', async (req, res) => {
     // res.send('Details about a particular place')
 })
 
+router.post('/:id/comments', async (req, res) => {
+    // console.log('req ',req.body.content);
+    let index = req.params.id
+    let place = await places.findById(index)
+    if (req.body.rant){
+        req.body.rant = true
+    } else {
+        req.body.rant = false
+    }
+    let comment = await comments.create(req.body)
+    // console.log('new comment', comment.id);
+    place.comments.push(comment.id)
+    place.save()
+    // res.send('new comment added', req.body)
+    res.redirect(`/places/${index}`)
+})
 
 router.post('/:id/rant', (req, res) => {
     res.send('Create a rant (comment) about a particular place')
