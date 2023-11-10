@@ -83,12 +83,6 @@ router.put('/:id', async (req, res) => {
 router.delete('/:id', async (req, res) => {
     console.log('inside delete route', req.params.id);
     let index = req.params.id
-    // if (isNaN(index)) {
-    //     res.render('Error404')
-    // } else if (!places[index]) {
-    //     res.render('Error404')
-    // } else {
-    // places.splice(index, 1)
     await places.findByIdAndDelete(index)
     res.redirect('/places')
     // }
@@ -153,7 +147,10 @@ router.post('/:id/comments', async (req, res) => {
     // res.send('new comment added', req.body)
     res.redirect(`/places/${index}`)
 })
-
+router.delete('/:id/comments/:cID', (req, res) => {
+    let index = req.params.id
+    res.send('Deleting a comment')
+})
 router.post('/:id/rant', (req, res) => {
     res.send('Create a rant (comment) about a particular place')
 })

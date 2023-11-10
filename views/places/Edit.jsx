@@ -64,13 +64,13 @@ function Edit({ place, index }) {
                         />
                     </div>
                     <div className='form-group m-1' >
-                        <label htmlFor="founded">Image URL</label>
+                        <label htmlFor="founded">Founded</label>
                         <input
                             type="number"
                             name='founded'
                             id='founded'
                             className="form-control"
-                            defaultValue={place.pic}
+                            defaultValue={place.founded}
                         />
                     </div>
                     <input className='btn btn-success' type='submit' value='Update' />
