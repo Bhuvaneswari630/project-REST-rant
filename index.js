@@ -4,7 +4,7 @@ const app = express()
 const mongoose = require('mongoose')
 
 const PORT = process.env.PORT
-const MONGO_URI = process.env.MONGO_URI
+const MONGO_URI = process.env.MONGODB_URI
 
 const methodOverride = require('method-override')
 app.use(express.static('public'))

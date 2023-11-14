@@ -39,7 +39,7 @@ router.post('/', async (req, res) => {
                 message += `${e.errors[field].message}`
                 console.log('Validation error message', message);
             }
-            res.render('places/new', { message })
+            res.render('places/New', { message })
         } else {
             console.log('Err', e);
             res.render('Error404', e)
