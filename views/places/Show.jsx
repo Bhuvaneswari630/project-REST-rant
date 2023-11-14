@@ -3,7 +3,7 @@ const Default = require('../Default')
 
 function Show({ place, index }) {
     const starEmoji = '\u2B50';
-    const heartEmoji = '\U2764';
+    const heartEmoji = 'https://st1.zoom.us/fe-static/fe-emoji/0.0.1.7/resource/1f63b.svg'
     let comments = (
         <h4 className='inactive'>
             No comments yet !
